@@ -198,14 +198,14 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/
 end)
 
 Section4:NewButton("RobHub's Universal", "", function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
-
-Section4:NewButton("RobHub's TSB [private, in-dev]", "", function()
 	local stg = game:GetService("StarterGui")
 
 stg:SetCore("SendNotification", {
-    Title = "Thanks For Using ROBHUB!",
-    Text = "There are more and MORE users of our cheat, and you are one of them)"
+    Title = "BRUH",
+    Text = "Its me..."
 })
+end)
+
+Section4:NewButton("RobHub's TSB [private, in-dev]", "", function()
+
 end)
