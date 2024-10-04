@@ -208,3 +208,4 @@ stg:SetCore("SendNotification", {
     Title = "Thanks For Using ROBHUB!",
     Text = "There are more and MORE users of our cheat, and you are one of them)"
 })
+end)
