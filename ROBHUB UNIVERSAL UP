@@ -155,6 +155,12 @@ game.StarterGui:SetCore("SendNotification", {
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("ROBHUB TOOL GIVER [SPECIAL FOR UNIVERSAL SCRIPT]", "Midnight")
 local TabM = Window:NewTab("Tools")
+
+local Section = TabM:NewSection("TOOLS")
+
+Section:NewButton("Speed Coil", " ", function()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/CJFabro8/Client-Things/main/Speed%20Coil'),true))() -- Speed Coil
+end)
 end)
 
 local SectionF = TabF:NewSection("Features")
