@@ -7,12 +7,12 @@ stg:SetCore("SendNotification", {
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("ROBHUB DOORS V2.0 [RELEASE]", "Midnight")
-local Tab = Window:NewTab("Items")
+local Tab = Window:NewTab("Main")
 local Tab2 = Window:NewTab("Achievements")
 local Tab3 = Window:NewTab("Visuals")
-local Tab4 = Window:NewTab("Fictures")
+local Tab4 = Window:NewTab("Items")
 local Tab5 = Window:NewTab("Scripts")
-local Section = Tab:NewSection("ITEMS")
+local Section = Tab4:NewSection("ITEMS")
  
  
 Section:NewButton("Skeleton Key [WORK]", "a", function()
@@ -501,7 +501,7 @@ seekGun.Activated:Connect(function()
 end)
 end)
 
-local SectionH = Tab:NewSection("HARDMODE ITEMS")
+local SectionH = Tab4:NewSection("HARDMODE ITEMS")
 SectionH:NewButton("Mini Shield Pot [BREAKS THE GAME]", "aX", function()
    local a=game:GetObjects("rbxassetid://12968406868")[1]local b=game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")a.Parent=game.Players.LocalPlayer.Backpack;a.Equipped:Connect(function()local a=a.Animations.idle;local a=b:LoadAnimation(a)a:Play()end)a.Activated:Connect(function()local c=a.Animations.open;local b=b:LoadAnimation(c)b:Play()a.Handle.sound_open:Play()wait(0.821)a:Destroy()end)a.Unequipped:Connect(function()for a,a in pairs(b.Animator:GetPlayingAnimationTracks())do a:Stop()end end)
 end)
@@ -600,7 +600,7 @@ Section3:NewButton("RTX", "GIVES RTX BRUH", function()
     game.Lighting.OutdoorAmbient = Color3.fromRGB(35, 35, 45)
 end)
 
-local Section4 = Tab4:NewSection("FICTURES")
+local Section4 = Tab:NewSection("Main")
 
 Section4:NewButton("Reset", "kX", function()
     game.Players.LocalPlayer.Character.Humanoid.Health = 0
@@ -979,5 +979,3 @@ end
 
 loadstring(game:HttpGet(baseURL .. scriptPath))()
 end)
-
-
