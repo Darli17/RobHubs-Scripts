@@ -13,8 +13,8 @@ local Window = Rayfield:CreateWindow({
    KeySettings = {
       Title = "ROBHUB X 2.0 [DOORS]",
       Subtitle = "Key System",
-      Note = "Key : joindarlisquad",
-      Key = {"joindarlisquad"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Note = "Key : D2X4VFV2C",
+      Key = {"D2X4VFV2C"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
 
@@ -453,6 +453,13 @@ local Button = TabI:CreateButton({
     Name = "Crucifix [DONT WORK]",
     Callback = function()
 local a=game:GetObjects("rbxassetid://12987670263")[1]local b=game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")a.Parent=game.Players.LocalPlayer.Backpack;a.Equipped:Connect(function()local a=a.Animations.idle;local a=b:LoadAnimation(a)a:Play()end)a.Unequipped:Connect(function()for a,a in pairs(b.Animator:GetPlayingAnimationTracks())do a:Stop()end end)
+end,
+})
+
+local Button = TabI:CreateButton({
+    Name = "Bird [WORK]",
+    Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/PFERptU5", true))()
 end,
 })
 
