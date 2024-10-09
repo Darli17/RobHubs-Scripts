@@ -33,6 +33,46 @@ local Slider = Tab:CreateSlider({
 
 local Section = Tab:CreateSection("Features")
 
+
+local Button = Tab:CreateButton({
+   Name = "SEEK DRIP",
+   Callback = function()
+local Image = game:GetService("Players").LocalPlayer.PlayerGui.MainUI.Drip; -- The gui object we want to tween
+
+Image.Visible = true
+
+local SoundNew = Instance.new("Sound")
+
+SoundNew.Volume = 7
+SoundNew.Parent = workspace
+SoundNew.SoundId = "rbxassetid://8509804480"
+SoundNew:Play()
+game.Debris:AddItem(SoundNew, 2.568)
+
+local TS = game:GetService("TweenService"); -- Getting tween service
+
+local newTransparency = 1; -- 0 meaning fully visible and 1 meaning invisible.
+
+local TweenTime = 2.300; -- The ammount of time we want this tween to take
+
+local TweenInfo = TweenInfo.new(TweenTime); -- For more info on TweenInfo look at the wiki
+
+local Tween = TS:Create(
+   Image, -- The object we want to tween
+   TweenInfo, -- The tween info set above
+   {
+      ImageTransparency= newTransparency -- The property we want to change and what we want to change it to.
+   }
+);
+
+Tween:Play(); -- Fianlly, playing our tween!
+
+wait(2.500)
+Image.Visible = false
+Image.ImageTransparency = 0
+end,
+})
+
 local Button = Tab:CreateButton({
    Name = "Grumble Spawner",
    Callback = function()
