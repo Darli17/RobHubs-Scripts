@@ -2,7 +2,7 @@ local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shle
 
 local Window = Rayfield:CreateWindow({
    Name = "ROBHUB X 2.0 [DOORS]",
-   LoadingTitle = "ROBHUB Is Loaded!",
+   LoadingTitle = "ROBHUB X Is Loaded!",
    LoadingSubtitle = "by ValerikRob",
    ConfigurationSaving = {
       Enabled = true,
