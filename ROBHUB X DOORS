@@ -1166,11 +1166,9 @@ local Button = TabJ:CreateButton({
 
 	ju.Jumpscare_Rush.Visible = true
 
-	mainui.Intiator.Main_Game.RemoteListener.Jumpscares.Rush.Jumpscare_Rush:Play()
 
 	wait(2)
 
-	mainui.Intiator.Main_Game.RemoteListener.Jumpscares.Rush.Jumpscare_Rush:Destroy()
 
 	ju.Jumpscare_Rush.ImageLabel.Size = UDim2.new(0.3, 0.3, 0.3, 0.3)
 
@@ -1187,7 +1185,6 @@ local Button = TabJ:CreateButton({
 	ju.Jumpscare_Rush.ImageLabelBig.Visible = true
 
 	ju.Jumpscare_Rush.ImageLabelBig:TweenSize(UDim2.new(1,0,1,0), "Out", "Sine", 0.1)
-	mainui.Intiator.Main_Game.RemoteListener.Jumpscares.Rush.Jumpscare_Rush:Play()
 
 
 	wait(2)
@@ -1195,9 +1192,5 @@ local Button = TabJ:CreateButton({
 	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000)
 
 	ju.Jumpscare_Rush.Visible = false
-
-	wait(3)
-
-	mainui.Intiator.Main_Game.RemoteListener.Jumpscares.Rush.Jumpscare_Rush:Destroy()
 end,
 })
