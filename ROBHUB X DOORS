@@ -1189,7 +1189,7 @@ local Button = TabJ:CreateButton({
 
 	wait(2)
 	
-	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000)
+	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(100)
 
 	ju.Jumpscare_Rush.Visible = false
 end,
