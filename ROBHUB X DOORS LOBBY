@@ -1,0 +1,78 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "ROBHUB X 2.0 [DOORS LOBBY]",
+	LoadingTitle = "ROBHUB X Is Loaded!",
+	LoadingSubtitle = "by ValerikRob",
+	ConfigurationSaving = {
+	Enabled = true,
+	FolderName = nil, -- Create a custom folder for your hub/game
+	FileName = "ROBHUBXDOORS"
+	},
+	KeySystem = false, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "ROBHUB X 2.0 [DOORS]",
+		Subtitle = "Key System",
+		Note = "Key : D2X4VFV2C",
+		Key = {"D2X4VFV2C", "D"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+	}
+})
+
+local Tab = Window:CreateTab("Main", 4483362458)
+
+local Button = Tab:CreateButton({
+	Name = "Create Retro Elevator",
+	Callback = function()
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local TeleportService = game:GetService("TeleportService")
+local Workspace = game:GetService("Workspace")
+
+local supportsFileSystem = (ExecutorSupport["isfile"] and ExecutorSupport["delfile"] and ExecutorSupport["listfiles"] and ExecutorSupport["writefile"] and ExecutorSupport["makefolder"] and ExecutorSupport["isfolder"])
+
+local localPlayer = Players.LocalPlayer
+local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+
+local playerGui = localPlayer.PlayerGui
+local mainUI = playerGui:WaitForChild("MainUI")
+local lobbyFrame = mainUI:WaitForChild("LobbyFrame")
+local achievementsFrame = lobbyFrame:WaitForChild("Achievements")
+local createElevatorFrame = lobbyFrame:WaitForChild("CreateElevator")
+
+local remotesFolder = ReplicatedStorage:WaitForChild("RemotesFolder")
+local createElevator = remotesFolder:WaitForChild("CreateElevator")
+
+local lobbyElevators = workspace:WaitForChild("Lobby"):WaitForChild("LobbyElevators")
+
+        local data = {
+            ["FriendsOnly"] = createElevatorFrame.Settings.FriendsOnly:GetAttribute("Setting"),
+            ["Destination"] = "Hotel",
+            ["Mods"] = {},
+            ["MaxPlayers"] = createElevatorFrame.Settings.MaxPlayers.Toggle.Text
+        }
+
+        for _, modifier in pairs(createElevatorFrame.Modifiers:GetChildren()) do
+            if modifier:GetAttribute("Enabled") then
+                table.insert(data.Mods, modifier.Name)
+            end
+        end
+
+        table.insert(data.Mods, "RetroMode")
+
+        createElevator:FireServer(data)
+end,
+})
+
+local TabI = Window:CreateTab("UI Settings")
+
+local Button = TabI:CreateButton({
+	Name = "Unload"
+	Callback = function()
+	Rayfield:Destroy()
+end,
+})
+
+local Label = TabI:CreateLabel("ROBHUB X Was make by @ValerikRob")
+local Label2 = TabI:CreateLabel("Thanks for using this script!")
