@@ -9,7 +9,7 @@ local Window = Rayfield:CreateWindow({
       FolderName = nil, -- Create a custom folder for your hub/game
       FileName = "ROBHUBXDOORS"
    },
-   KeySystem = true, -- Set this to true to use our key system
+   KeySystem = false, -- Set this to true to use our key system
    KeySettings = {
       Title = "ROBHUB X 2.0 [DOORS]",
       Subtitle = "Key System",
@@ -70,47 +70,6 @@ Tween:Play(); -- Fianlly, playing our tween!
 wait(2.500)
 Image.Visible = false
 Image.ImageTransparency = 0
-end,
-})
-
-local Button = Tab:CreateButton({
-   Name = "SEEK DRIP LEAVE BUTTON",
-   Callback = function()
-game.Players.LocalPlayer.PlayerGui.MainUI.DeathPanelDead.Leave.Mouse1ButtonClick:Connect(function()
-	local Image = game:GetService("Players").LocalPlayer.PlayerGui.MainUI.Drip; -- The gui object we want to tween
-
-	Image.Visible = true
-
-	local SoundNew = Instance.new("Sound")
-
-	SoundNew.Volume = 7
-	SoundNew.Parent = workspace
-	SoundNew.SoundId = "rbxassetid://8509804480"
-	SoundNew:Play()
-	game.Debris:AddItem(SoundNew, 2.568)
-
-	local TS = game:GetService("TweenService"); -- Getting tween service
-
-	local newTransparency = 1; -- 0 meaning fully visible and 1 meaning invisible.
-
-	local TweenTime = 2.300; -- The ammount of time we want this tween to take
-
-	local TweenInfo = TweenInfo.new(TweenTime); -- For more info on TweenInfo look at the wiki
-
-	local Tween = TS:Create(
-   	Image, -- The object we want to tween
-   	TweenInfo, -- The tween info set above
-   	{
-      		ImageTransparency= newTransparency -- The property we want to change and what we want to change it to.
-   	}
-	);
-
-	Tween:Play(); -- Fianlly, playing our tween!
-
-	wait(2.500)
-	Image.Visible = false
-	Image.ImageTransparency = 0
-end)
 end,
 })
 
@@ -1185,7 +1144,7 @@ game.Players.LocalPlayer.PlayerGui.erm.Enabled = false
 end,
 })
 
-local TabI = Window:CreateTab("UI Settings", 4483362458)
+local TabI = Window:CreateTab("UI Settings")
 
 local Button = TabI:CreateButton({
     Name = "Unload",
@@ -1196,3 +1155,47 @@ end,
 
 local Label = TabI:CreateLabel("ROBHUB X Was make by @ValerikRob")
 local Label2 = TabI:CreateLabel("Thanks for using this script!")
+
+local TabJ = Window:CreateTab("Jumpscares", 4483362458)
+
+local Button = TabJ:CreateButton({
+   Name = "Rush [KILLABLE]",
+   Callback = function()
+	local mainui = game.Players.LocalPlayer.PlayerGui.MainUI
+	local ju = mainui.Jumpscare
+
+	ju.Jumpscare_Rush.Visible = true
+
+	mainui.Intiator.Main_Game.RemoteListener.Jumpscares.Rush.Jumpscare_Rush:Play()
+
+	wait(2)
+
+	mainui.Intiator.Main_Game.RemoteListener.Jumpscares.Rush.Jumpscare_Rush:Destroy()
+
+	ju.Jumpscare_Rush.ImageLabel.Size = UDim2.new(0.3, 0.3, 0.3, 0.3)
+
+	ju.Jumpscare_Rush.ImageLabel.Visible = true
+
+	wait(2)
+
+	ju.Jumpscare_Rush.ImageLabel.Size = UDim2.new(0.4, 0.4, 0.4, 0.4)
+
+	wait(3)
+
+	ju.Jumpscare_Rush.ImageLabel.Visible = false
+
+	ju.Jumpscare_Rush.ImageLabelBig.Visible = true
+
+	ju.Jumpscare_Rush.ImageLabelBig:TweenSize(UDim2.new(1,0,1,0), "Out", "Sine", 0.1)
+	mainui.Intiator.Main_Game.RemoteListener.Jumpscares.Rush.Jumpscare_Rush:Play()
+
+
+	wait(2)
+	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(1000)
+
+	ju.Jumpscare_Rush.Visible = false
+
+	wait(3)
+		mainui.Intiator.Main_Game.RemoteListener.Jumpscares.Rush.Jumpscare_Rush:Destroy()
+end,
+})
